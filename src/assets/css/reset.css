@@ -8,3 +8,4 @@ button, input[type=button], input[type=submit], input[type=text] { border: none;
 button, input[type=button], input[type=submit] { cursor: pointer; }
 fieldset { border: none; }
 legend { display: none; }
+.row { max-width: 1200px; margin: 0 auto; }

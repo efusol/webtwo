@@ -11,11 +11,18 @@ position: relative;
     position: relative;
     .text1 {
       position: absolute;
-      top: 100px;
-      left: 100px;
+      top: 10%;
+      left: 5%;
       color: #fff;
+      @media screen and (max-width: 1024px){
+        
+          display: none;
+        
+      }
+     
       h1 {
         text-align: left;
+
       }
     }
     .text2 {
@@ -23,6 +30,11 @@ position: relative;
       top: 70%;
       right: 100px;
       color: #fff;
+            @media screen and (max-width: 1024px){
+        
+          display: none;
+        
+      }
       h1 {
         text-align: left;
       }
@@ -33,6 +45,20 @@ position: relative;
       }
     }
   }
+    
+    .text3{
+    @media screen and (max-width: 1024px){
+      display: block;
+    }
+      display: none;
+      position: absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%, -50%);
+      font-size:50px;
+      color:#fff;
+    
+}
 `
 
 const MainPhoto = () => {
@@ -51,6 +77,9 @@ const MainPhoto = () => {
           <p>우리 사회와 지구가 앞으로도 지속가능한 발전을 이어갈 수 있도록</p>
           <p>오늘 할 수 있는 일들을 끊임없이 고민하고 실천합니다.</p>
           <p>한화는 오늘 우리의 선택과 행동이 내일의 모습을 만들어 간다고 믿습니다.</p>
+        </div>
+        <div className="text3">
+          <h1>Hanwha</h1>
         </div>
       </div>
     </MainPhotoBlock>

@@ -3,9 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { userLogout } from '../../store/user';
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const HeaderBlock = styled.div`
+  .hamburger {
+    position:absolute;
+    top: 50%;
+    transform:translateY(-50%);
+    right: 30px;
+    font-size: 30px;
+  }
   .header {
+    position:relative;
     background: #000;
     color: #fff;
     width: 100%;
@@ -21,6 +30,14 @@ const HeaderBlock = styled.div`
       svg {cursor: pointer;}      
     }
     .depth1 {
+    @media screen and (max-width:1024px) {  
+      display: block;
+      position: absolute;
+      right: 0px; top: 0px; 
+      background: white;
+      height: 1080px;
+      color: #000;
+    }
       display: flex;
       align-items: center;
       text-align: center;
@@ -48,6 +65,11 @@ const HeaderBlock = styled.div`
         }
       }
       .depth2 {
+        @media screen and (max-width:1024px) {
+        border: 2px solid red;
+        
+      
+      }
         position: absolute;
         top: 100%;
         left: 0;
@@ -62,7 +84,7 @@ const HeaderBlock = styled.div`
           border-right: 1px solid rgba(0,0,0,0.12);
           border-top: 1px solid rgba(0,0,0,0.12);
           li {
-            width: 140px;
+            width: 120px;
             padding: 15px 0;
             color: rgba(0,0,0,0.6);
             a:hover {
@@ -94,8 +116,13 @@ const HeaderBlock = styled.div`
     color: #000;
     transition: 1s;
     path:nth-child(n+4) {fill: black;}
-    .depth1 {width:560px; li {width:140px}}
-    .depth2 {opacity: 1; pointer-events: auto;}
+    .depth1 {}
+    .depth2 {opacity: 1; pointer-events: auto;
+      @media screen and (max-width:1024px) {
+        opacity: 0; pointer-events: none;
+        
+      
+      }}
     .mem {
       a {
         border: 1px solid #000;
@@ -136,7 +163,8 @@ const Header = () => {
 
   return (
     <HeaderBlock>
-        <div className='header'>
+        <div className='header'> 
+          <div className='hamburger'>< GiHamburgerMenu /></div>
           <h1>
             <Link to='/'>
               <svg width="132" height="37" viewBox="0 0 132 37" fill="none" xmlns="http://www.w3.org/2000/svg">

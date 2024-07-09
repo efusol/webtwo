@@ -29,13 +29,16 @@ h1 {text-align: center;}
   }
   .slick-dots {
     position: absolute;
-    bottom: 40px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     li {
       display: inline-block;
       margin: 0 10px;
       button {
+      @media screen and (max-width: 1024px){ width: 10px;
+        height: 10px; }
+        @media screen and (max-width: 767px) {display: none;}
         width: 20px;
         height: 20px;
         background: rgb(241, 216, 220);

@@ -5,6 +5,9 @@ import 'slick-carousel/slick/slick.css'
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const SubPhotoBlock = styled.div`
+@media screen and (max-width: 767px) {
+  .maintitle {font-size: 20px;}
+}
 h1 {text-align: center;}
   .slide {
     position: relative;
@@ -22,6 +25,9 @@ h1 {text-align: center;}
       left: 5%;
       color: #fff;
       h1 {
+        @media screen and (max-width: 767px) {
+          font-size: 30px;
+        }
         text-align: left;
         font-size: 44px;
       }
@@ -29,13 +35,16 @@ h1 {text-align: center;}
   }
   .slick-dots {
     position: absolute;
-    bottom: 40px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     li {
       display: inline-block;
       margin: 0 10px;
       button {
+      @media screen and (max-width: 1024px){ width: 10px;
+        height: 10px; }
+        @media screen and (max-width: 767px) {display: none;}
         width: 20px;
         height: 20px;
         background: rgb(241, 216, 220);
@@ -94,7 +103,7 @@ const SubPhoto = () => {
 
   return (
     <SubPhotoBlock>
-      <h1>한화는 우리의 기술, 제품, 서비스를 통해<br />
+      <h1 className='maintitle'>한화는 우리의 기술, 제품, 서비스를 통해<br />
         개인과 사회의 풍요로운 삶의 기반을 마련합니다.</h1>
       <Slider {...option} className='row'>
         <div className="slide slide1">

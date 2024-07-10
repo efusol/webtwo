@@ -3,48 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { userLogout } from '../../store/user';
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoCloseSharp } from "react-icons/io5";
 
 const HeaderBlock = styled.div`
-@media screen and (max-width:1024px) {  
-  &.on {
-  position: fixed;
-  width: 70%;
-  height:100%;
-  background: rgba(0, 0, 0, 0.5);
-  transition: 0.5s;
-  z-index: 10;
-  }
-}
-  .hamburger {
-    position: absolute;
-    top: 50%;
-    transform:translateY(-50%);
-    right: 30px;
-    font-size: 30px;
-    display: none;
-    cursor: pointer;
-    @media screen and (max-width:1024px) {
-      display: block;
-    }
-  }
-  .close {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    font-size: 30px;
-    display: none;
-    @media screen and (max-width:1024px) {
-      display: block;
-    }
-  }
   .header {
-    @media screen and (max-width:1024px) {
-      height: 90px;
-      position: fixed;
-    }
-    position:relative;
     background: #000;
     color: #fff;
     width: 100%;
@@ -60,18 +21,6 @@ const HeaderBlock = styled.div`
       svg {cursor: pointer;}      
     }
     .depth1 {
-    @media screen and (max-width:1024px) {  
-      display: block;
-      position: fixed;
-      left: 100%; top: 0px;
-      padding-top: 90px; 
-      background: white;
-      height: 100%;
-      width: 30%;
-      color: #000;
-      transition: 0.5s;
-      &.on {left:70%;}
-    }
       display: flex;
       align-items: center;
       text-align: center;
@@ -104,9 +53,6 @@ const HeaderBlock = styled.div`
         }
       }
       .depth2 {
-        @media screen and (max-width:1024px) {
-        border: 2px solid red;
-      }
         position: absolute;
         top: 100%;
         left: 0;
@@ -157,6 +103,8 @@ const HeaderBlock = styled.div`
     background: #EDECEC;
     color: #000;
     transition: 1s;
+    path:nth-child(n+4) {fill: black;}
+    .depth1 {width:560px; li {width:140px}}
     .depth2 {opacity: 1; pointer-events: auto;}
     .mem {
       a {
@@ -229,9 +177,8 @@ const Header = () => {
   }, [user])
 
   return (
-    <HeaderBlock className={on ? 'on' : ''}>
-        <div className='header'> 
-          <div className='hamburger' onClick={()=>setOn(true)}>< GiHamburgerMenu /></div>
+    <HeaderBlock>
+        <div className='header'>
           <h1>
             <Link to='/'>
               <svg width="132" height="37" viewBox="0 0 132 37" fill="none" xmlns="http://www.w3.org/2000/svg">

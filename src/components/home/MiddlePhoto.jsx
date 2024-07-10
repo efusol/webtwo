@@ -2,40 +2,36 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MiddlePhotoBlock = styled.div`
-margin-top: 150px;
-display: flex;
-justify-content: center;
-  .row {
+    margin-top: 150px;
     display: flex;
-    margin: 20px 40px;
-    .middle {
-      margin: 0 30px;
-    }
-    div {
-      .imagebox {
-        border: 1px solid #ddd;
-        overflow: hidden;
-        margin-bottom: 20px;
-        cursor:pointer;
-        img {
-          transition: 0.5s;
-          &:hover {
-            transform: scale(1.2);
-          }
+    justify-content: center;
+    .row {
+        display: flex;
+        margin: 20px 40px;
+        .middle {
+            margin: 0 30px;
         }
-      }
+        div {
+            .imagebox {
+                border: 1px solid #ddd;
+                overflow: hidden;
+                margin-bottom: 20px;
+                cursor:pointer;
+                img {
+                    transition: 0.5s;
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
+            }
+        }
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 5px;
+            cursor:pointer;
+        }
     }
-    p {
-      font-size: 18px;
-      font-weight: bold;
-      padding: 5px;
-      cursor:pointer;
-      @media screen and (max-width: 767px) {
-        font-size: 12px;
-        font-weight: solid;
-      }
-    }
-  }
 `;
 
 const MiddlePhoto = () => {

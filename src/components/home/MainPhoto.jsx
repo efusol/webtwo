@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css'
@@ -19,7 +19,7 @@ position: relative;
           display: none;
         
       }
-     
+    
       h1 {
         text-align: left;
 
@@ -61,7 +61,22 @@ position: relative;
 }
 `
 
-const MainPhoto = () => {
+const Jump = styled.section`
+  position: fixed; top: 40%; right: 15px;
+    display: flex; flex-direction: column;
+    button {
+        margin: 10px 0; 
+        padding: 10px 20px;
+        background: none;
+        border: none;
+        z-index: 9999;
+    }
+    img {
+        display: block;
+    }
+`
+
+const MainPhoto = ({scrollToSection, MainPhotoRef, SubPhotoRef, MiddlePhotoRef}) => {
   return (
     <MainPhotoBlock>
       <div className="top">
@@ -82,6 +97,17 @@ const MainPhoto = () => {
           <h1>Hanwha</h1>
         </div>
       </div>
+      <Jump>
+                <button onClick={() => scrollToSection(MainPhotoRef)}>
+                    <img src='./assets/image/side_icon1.png' alt='icon1' />
+                </button>
+                <button onClick={() => scrollToSection(SubPhotoRef)}>
+                    <img src='./assets/image/side_icon4.png' alt='icon4' />
+                </button>
+                <button onClick={() => scrollToSection(MiddlePhotoRef)}>
+                    <img src='./assets/image/side_icon3.png' alt='icon3' />
+                </button>
+            </Jump>
     </MainPhotoBlock>
   );
 };

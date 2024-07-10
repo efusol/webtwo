@@ -10,10 +10,11 @@ border-top: 1px solid #e2e2e2;
 		border-top: 0px solid #e2e2e2;
 		}
 	.footer {
-		.depth1 {		
-			@media screen and (max-width: 1024px){
+		.depth1 {
+		
+		@media screen and (max-width: 1024px){
 			display:none;
-			}
+		}
 			padding: 0 45px 50px 45px;
 			border-bottom: 1px solid #e2e2e2;
 			.big {

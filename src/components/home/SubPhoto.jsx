@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css'
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const SubPhotoBlock = styled.div`
+padding-top: 90px;
 h1 {text-align: center;}
 .title {
   @media screen and (max-width:767px) {

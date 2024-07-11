@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MiddlePhotoBlock = styled.div`
+padding-top: 90px;
 margin-top: 150px;
 display: flex;
 justify-content: center;

@@ -5,11 +5,14 @@ import 'slick-carousel/slick/slick.css'
 const MainPhotoBlock = styled.div`
 position: relative;
   .top {
+    img {
+      margin-top: 90px;
+    }
     margin-bottom: 200px;
     position: relative;
     .text1 {
       position: absolute;
-      top: 10%;
+      top: 15%;
       left: 5%;
       color: #fff;
       @media screen and (max-width: 1024px){
@@ -54,22 +57,7 @@ position: relative;
   }
 `
 
-const Jump = styled.section`
-  position: fixed; top: 40%; right: 15px;
-    display: flex; flex-direction: column;
-    button {
-        margin: 10px 0; 
-        padding: 10px 20px;
-        background: none;
-        border: none;
-        z-index: 1000;
-    }
-    img {
-        display: block;
-    }
-`
-
-const MainPhoto = ({scrollToSection, MainPhotoRef, SubPhotoRef, MiddlePhotoRef}) => {
+const MainPhoto = () => {
   return (
     <MainPhotoBlock>
       <div className="top">
@@ -90,17 +78,6 @@ const MainPhoto = ({scrollToSection, MainPhotoRef, SubPhotoRef, MiddlePhotoRef})
           <h1>Hanwha</h1>
         </div>
       </div>
-      <Jump>
-        <button onClick={() => scrollToSection(MainPhotoRef)}>
-          <img src='./assets/image/side_icon1.png' alt='icon1' />
-        </button>
-        <button onClick={() => scrollToSection(SubPhotoRef)}>
-          <img src='./assets/image/side_icon4.png' alt='icon4' />
-        </button>
-        <button onClick={() => scrollToSection(MiddlePhotoRef)}>
-          <img src='./assets/image/side_icon3.png' alt='icon3' />
-        </button>
-      </Jump>
     </MainPhotoBlock>
   );
 };

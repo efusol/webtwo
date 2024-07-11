@@ -3,6 +3,7 @@ import MainPhoto from '../components/home/MainPhoto';
 import MainBottom from '../components/home/MainBottom';
 import SubPhoto from '../components/home/SubPhoto';
 import MiddlePhoto from '../components/home/MiddlePhoto';
+import Jump from '../components/home/Jump';
 import { useRef } from 'react';
 
 const HomeView = () => {
@@ -12,17 +13,18 @@ const HomeView = () => {
 
 	const scrollToSection = (ref) => {
 		if (ref && ref.current) {
-			ref.current.scrollIntoView({ behavior: 'smooth' });
+			ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
 		}
 	};
 	return (
 		<div>
 			<div ref={MainPhotoRef}>
-				<MainPhoto scrollToSection={scrollToSection} MainPhotoRef={MainPhotoRef} SubPhotoRef={SubPhotoRef} MiddlePhotoRef={MiddlePhotoRef}  />
-				</div>
+				<MainPhoto />
+			</div>
 			<div ref={SubPhotoRef}><SubPhoto /></div>
 			<div ref={MiddlePhotoRef}><MiddlePhoto /></div>
 			<MainBottom />
+			<Jump scrollToSection={scrollToSection} MainPhotoRef={MainPhotoRef} SubPhotoRef={SubPhotoRef} MiddlePhotoRef={MiddlePhotoRef} />
 		</div>
 	);
 };

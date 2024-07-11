@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 import React from 'react';
-=======
-import React, {useRef} from 'react';
-import Slider from 'react-slick';
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css'
 
@@ -20,10 +15,6 @@ position: relative;
       @media screen and (max-width: 1024px){
         display: none;
       }
-<<<<<<< HEAD
-=======
-    
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
       h1 {
         text-align: left;
       }
@@ -71,11 +62,7 @@ const Jump = styled.section`
         padding: 10px 20px;
         background: none;
         border: none;
-<<<<<<< HEAD
         z-index: 1000;
-=======
-        z-index: 9999;
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
     }
     img {
         display: block;
@@ -104,7 +91,6 @@ const MainPhoto = ({scrollToSection, MainPhotoRef, SubPhotoRef, MiddlePhotoRef})
         </div>
       </div>
       <Jump>
-<<<<<<< HEAD
         <button onClick={() => scrollToSection(MainPhotoRef)}>
           <img src='./assets/image/side_icon1.png' alt='icon1' />
         </button>
@@ -115,18 +101,6 @@ const MainPhoto = ({scrollToSection, MainPhotoRef, SubPhotoRef, MiddlePhotoRef})
           <img src='./assets/image/side_icon3.png' alt='icon3' />
         </button>
       </Jump>
-=======
-                <button onClick={() => scrollToSection(MainPhotoRef)}>
-                    <img src='./assets/image/side_icon1.png' alt='icon1' />
-                </button>
-                <button onClick={() => scrollToSection(SubPhotoRef)}>
-                    <img src='./assets/image/side_icon4.png' alt='icon4' />
-                </button>
-                <button onClick={() => scrollToSection(MiddlePhotoRef)}>
-                    <img src='./assets/image/side_icon3.png' alt='icon3' />
-                </button>
-            </Jump>
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
     </MainPhotoBlock>
   );
 };

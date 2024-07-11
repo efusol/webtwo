@@ -27,12 +27,9 @@ h1 {text-align: center;}
       left: 5%;
       color: #fff;
       h1 {
-<<<<<<< HEAD
         @media screen and (max-width:767px) {
           font-size: 30px;
         }
-=======
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
         text-align: left;
         font-size: 44px;
       }
@@ -108,11 +105,7 @@ const SubPhoto = () => {
 
   return (
     <SubPhotoBlock>
-<<<<<<< HEAD
       <h1 className='title'>한화는 우리의 기술, 제품, 서비스를 통해<br />
-=======
-      <h1>한화는 우리의 기술, 제품, 서비스를 통해<br />
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
         개인과 사회의 풍요로운 삶의 기반을 마련합니다.</h1>
       <Slider {...option} className='row'>
         <div className="slide slide1">

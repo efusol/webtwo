@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { userLogout } from '../../store/user';
 import { GiHamburgerMenu } from "react-icons/gi";
-<<<<<<< HEAD
 import { IoCloseSharp } from "react-icons/io5";
 
 const HeaderBlock = styled.div`
@@ -43,19 +42,6 @@ const HeaderBlock = styled.div`
       height: 90px;
     }
     position: fixed;
-=======
-
-const HeaderBlock = styled.div`
-  .hamburger {
-    position:absolute;
-    top: 50%;
-    transform:translateY(-50%);
-    right: 30px;
-    font-size: 30px;
-  }
-  .header {
-    position:relative;
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
     background: #000;
     color: #fff;
     width: 100%;
@@ -73,7 +59,6 @@ const HeaderBlock = styled.div`
     .depth1 {
     @media screen and (max-width:1024px) {  
       display: block;
-<<<<<<< HEAD
       position: fixed;
       top: 0;
       left: 100%;
@@ -83,19 +68,11 @@ const HeaderBlock = styled.div`
       height: 100%;
       color: #000;
       &.on {left: 70%;}
-=======
-      position: absolute;
-      right: 0px; top: 0px; 
-      background: white;
-      height: 1080px;
-      color: #000;
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
     }
       display: flex;
       align-items: center;
       text-align: center;
       height: 90px;
-<<<<<<< HEAD
       position: relative;
       transition: 1s;
       li {
@@ -104,10 +81,6 @@ const HeaderBlock = styled.div`
           border-bottom: 1px solid #ddd;
           &:nth-child(1) {border-top: 1px solid #ddd;}
         }
-=======
-      position: relative;  
-      li {
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
         width: 120px;
         &:hover {
           color: rgba(0, 0, 0, 0.5);
@@ -130,12 +103,6 @@ const HeaderBlock = styled.div`
       }
       .depth2 {
         @media screen and (max-width:1024px) {
-<<<<<<< HEAD
-=======
-        border: 2px solid red;
-        
-      
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
       }
         position: absolute;
         top: 100%;
@@ -179,7 +146,6 @@ const HeaderBlock = styled.div`
     }
   }
   .header:hover {
-<<<<<<< HEAD
     @media screen and (max-width:1024px) {
       background: #000;
       color: #fff;
@@ -198,21 +164,6 @@ const HeaderBlock = styled.div`
           border: none;
           color: #000;
         }
-=======
-    background: #EDECEC;
-    color: #000;
-    transition: 1s;
-    path:nth-child(n+4) {fill: black;}
-    .depth1 {}
-    .depth2 {opacity: 1; pointer-events: auto;
-      @media screen and (max-width:1024px) {
-        opacity: 0; pointer-events: none;
-        
-      
-      }}
-    .mem {
-      a {
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
         border: 1px solid #000;
         color: #000;
       }
@@ -221,7 +172,6 @@ const HeaderBlock = styled.div`
 `
 
 const LoginJoin = styled.div`
-<<<<<<< HEAD
 @media screen and (max-width:1024px) {
   position: fixed;
   left: 100%;
@@ -252,26 +202,15 @@ const LoginJoin = styled.div`
         @media screen and (max-width:767px) {
           font-size: 10px;
         }
-=======
-  ul {
-    display: flex;
-    li {
-      font-size: 12px;
-      padding: 0 10px;
-      a {
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
         border: 1px solid #fff;
         border-radius: 25px;
         padding: 5px;
         color: #fff;
       }
       a:hover {
-<<<<<<< HEAD
         @media screen and (max-width:1024px) {
           background: #ddd;
         }
-=======
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
         background: #fff;
       }
     }
@@ -283,6 +222,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector(state=>state.users.user)
   const [isUser, setIsUser] = useState(user)
+  const [on, setOn] = useState(false)
   const navigate = useNavigate()
 
   useEffect(()=>{
@@ -290,15 +230,9 @@ const Header = () => {
   }, [user])
 
   return (
-<<<<<<< HEAD
     <HeaderBlock className={on ? 'on' : ''}>
         <div className='header'> 
           <div className='hamburger' onClick={()=>setOn(true)}>< GiHamburgerMenu /></div>
-=======
-    <HeaderBlock>
-        <div className='header'> 
-          <div className='hamburger'>< GiHamburgerMenu /></div>
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
           <h1>
             <Link to='/'>
               <svg width="132" height="37" viewBox="0 0 132 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -321,7 +255,7 @@ const Header = () => {
               </svg>
             </Link>
           </h1>
-          <ul className='depth1'>
+          <ul className={on ? 'depth1 on' : 'depth1'}>
             <li className='mainli q'><Link>그룹소개</Link></li>
             <li className='mainli w'><Link>사업분야</Link></li>
             <li className='mainli e'><Link>뉴스룸</Link></li>
@@ -353,11 +287,7 @@ const Header = () => {
               </ul>
             </ul>
           </ul>
-<<<<<<< HEAD
           <LoginJoin className={on ? 'on' : ''}>
-=======
-          <LoginJoin>
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
             { !isUser ?
               <>
                 <ul>
@@ -381,10 +311,7 @@ const Header = () => {
               </>
             }
           </LoginJoin>
-<<<<<<< HEAD
           <IoCloseSharp className='close' onClick={()=>setOn(false)} />
-=======
->>>>>>> e0f17a766ba994f2fccf4359bef9e2788ed8c2b3
         </div>
         
     </HeaderBlock>

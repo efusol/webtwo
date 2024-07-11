@@ -7,6 +7,9 @@ import { userLogin } from '../../store/user';
 const LoginSectionBlock = styled.div`
 padding: 90px;
   div {
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
     width: 400px;
     margin: 0 auto;
     text-align: center;
@@ -31,6 +34,9 @@ padding: 90px;
         }
       }
       button {
+        @media screen and (max-width: 767px) {
+          width: 100%;
+        }
         height: 50px;
         width: 400px;
         font-size: 22px;

@@ -8,12 +8,14 @@ import { IoCloseSharp } from "react-icons/io5";
 
 const HeaderBlock = styled.div`
 @media screen and (max-width:1024px) {
-  position: fixed;
-  width: 70%;
-  height: 100%;
-  z-index: 10;
-  transition: 0.5s;
-  &on {background: rgba(0, 0, 0, 0.5);}
+  &.on {
+    position: fixed;
+    width: 70%;
+    height: 100%;
+    z-index: 10;
+    transition: 1s;
+    background: rgba(0, 0, 0, 0.5);
+  }
 }
   .hamburger {
     position: fixed;

@@ -3,9 +3,45 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { userLogout } from '../../store/user';
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoCloseSharp } from "react-icons/io5";
 
 const HeaderBlock = styled.div`
+@media screen and (max-width:1024px) {
+  position: fixed;
+  width: 70%;
+  height: 100%;
+  z-index: 10;
+  transition: 0.5s;
+  &on {background: rgba(0, 0, 0, 0.5);}
+}
+  .hamburger {
+    position: fixed;
+    top: 4%;
+    right: 1%;
+    font-size: 30px;
+    display: none;
+    @media screen and (max-width:1024px) {
+      display: block;
+    }
+  }
+  .close {
+    position: fixed;
+    top: 1%;
+    right: 1%;
+    font-size: 30px;
+    display: none;
+    color: #000;
+    @media screen and (max-width:1024px) {
+      display: block;
+      z-index: 10;
+    }
+  }
   .header {
+    @media screen and (max-width:1024px) {
+      height: 90px;
+    }
+    position: fixed;
     background: #000;
     color: #fff;
     width: 100%;
@@ -21,13 +57,26 @@ const HeaderBlock = styled.div`
       svg {cursor: pointer;}      
     }
     .depth1 {
+    @media screen and (max-width:1024px) {  
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 100%;
+      padding-top: 90px;
+      background: white;
+      width: 30%;
+      height: 100%;
+      color: #000;
+      &.on {left: 70%;}
+    }
       display: flex;
       align-items: center;
       text-align: center;
       height: 90px;
       position: relative;
+      transition: 1s;
       li {
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width:1024px) {
           width: 100%;
           border-bottom: 1px solid #ddd;
           &:nth-child(1) {border-top: 1px solid #ddd;}
@@ -53,6 +102,8 @@ const HeaderBlock = styled.div`
         }
       }
       .depth2 {
+        @media screen and (max-width:1024px) {
+      }
         position: absolute;
         top: 100%;
         left: 0;
@@ -98,19 +149,20 @@ const HeaderBlock = styled.div`
     @media screen and (max-width:1024px) {
       background: #000;
       color: #fff;
-      .depth2 {opacity: 0; pointer-events: none;}
     }
     background: #EDECEC;
     color: #000;
     transition: 1s;
-    path:nth-child(n+4) {fill: black;}
-    .depth1 {width:560px; li {width:140px}}
-    .depth2 {opacity: 1; pointer-events: auto;}
+    .depth2 {opacity: 1; pointer-events: auto;
+      @media screen and (max-width:1024px) {
+        opacity: 0; pointer-events: none;
+      }
+    }
     .mem {
       a {
         @media screen and (max-width:1024px) {
           border: none;
-          color: rgba(0, 0, 0, 0.5);
+          color: #000;
         }
         border: 1px solid #000;
         color: #000;
@@ -120,50 +172,51 @@ const HeaderBlock = styled.div`
 `
 
 const LoginJoin = styled.div`
-@media screen and (max-width: 1024px) {
+@media screen and (max-width:1024px) {
   position: fixed;
   left: 100%;
   bottom: 3%;
   width: 30%;
   display: flex;
-  opacity: 0;
-  transition: 0.5s;
-  &.on {opacity: 1; left: 70%;}
+  transition: 1s;
+  &.on {left: 70%;}
 }
   ul {
     @media screen and (max-width:1024px) {
-      width: 100%;
+      flex: 1;
     }
     display: flex;
     li {
       @media screen and (max-width:1024px) {
-        flex: 1 0 30%;
-        text-align: center;
-        padding: 0;
-        font-size: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
       }
       font-size: 12px;
       padding: 0 10px;
       a {
         @media screen and (max-width:1024px) {
-          border: 0 solid #fff;
-          border-radius: 0;
-          color: rgba(0, 0, 0, 0.5);
+          border: none;
+          color: #000;
+        }
+        @media screen and (max-width:767px) {
+          font-size: 10px;
         }
         border: 1px solid #fff;
         border-radius: 25px;
         padding: 5px;
         color: #fff;
-        &:hover {
-          background: #fff;
-          @media screen and (max-width:1024px) {
-            background: #ddd;
-          }
+      }
+      a:hover {
+        @media screen and (max-width:1024px) {
+          background: #ddd;
         }
+        background: #fff;
       }
     }
   }
 `
+
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -177,8 +230,9 @@ const Header = () => {
   }, [user])
 
   return (
-    <HeaderBlock>
-        <div className='header'>
+    <HeaderBlock className={on ? 'on' : ''}>
+        <div className='header'> 
+          <div className='hamburger' onClick={()=>setOn(true)}>< GiHamburgerMenu /></div>
           <h1>
             <Link to='/'>
               <svg width="132" height="37" viewBox="0 0 132 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -232,8 +286,7 @@ const Header = () => {
                 <li><Link>Governance</Link></li>
               </ul>
             </ul>
-            <div className='close' onClick={()=>setOn(false)}><IoCloseSharp /></div>
-          </ul>          
+          </ul>
           <LoginJoin className={on ? 'on' : ''}>
             { !isUser ?
               <>
@@ -246,6 +299,9 @@ const Header = () => {
               <>
                 <ul>
                   <li className='mem'>
+                    <Link>{isUser.userName}</Link>
+                  </li>
+                  <li className='mem'>
                     <Link>정보수정</Link>
                   </li>
                   <li className='mem'>
@@ -255,7 +311,7 @@ const Header = () => {
               </>
             }
           </LoginJoin>
-          
+          <IoCloseSharp className='close' onClick={()=>setOn(false)} />
         </div>
     </HeaderBlock>
   );

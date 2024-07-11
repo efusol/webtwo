@@ -26,52 +26,51 @@ justify-content: center;
       }
     }
     p {
+      @media screen and (max-width: 767px) {
+        font-size: 10px;
+      }
       font-size: 18px;
       font-weight: bold;
       padding: 5px;
       cursor:pointer;
-      @media screen and (max-width: 767px) {
-        font-size: 12px;
-        font-weight: solid;
-      }
     }
   }
 `;
 
 const MiddlePhoto = () => {
-    return (
-        <MiddlePhotoBlock>
-            <div className="row">
-                <div>
-                    <div className="imagebox">
-                        <img src="./assets/image/01.jpg" alt="" />
-                    </div>
-                    <div>
-                        <p>
-                            ‘글로벌 스탠다드’로 우뚝 선 한국 파이브가이즈
-                            에프지코리아 파이브가이즈와 일본 진출 MOU 체결
-                        </p>
-                    </div>
-                </div>
-                <div className="middle">
-                    <div className="imagebox">
-                        <img src="./assets/image/02.jpg" alt="" />
-                    </div>
-                    <div>
-                        <p>한화생명 ‘2024 지속가능경영보고서’ 발간</p>
-                    </div>
-                </div>
-                <div>
-                    <div className="imagebox">
-                        <img src="./assets/image/03.jpg" alt="" />
-                    </div>
-                    <div>
-                        <p>한화, 책임경영 실천 및 주주가치 제고 나선다</p>
-                    </div>
-                </div>
-            </div>
-        </MiddlePhotoBlock>
-    );
+  return (
+    <MiddlePhotoBlock>
+      <div className="row">
+        <div>
+          <div className="imagebox">
+            <img src="./assets/image/01.jpg" alt="" />
+          </div>
+          <div>
+            <p>
+              ‘글로벌 스탠다드’로 우뚝 선 한국 파이브가이즈
+              에프지코리아 파이브가이즈와 일본 진출 MOU 체결
+            </p>
+          </div>
+        </div>
+        <div className="middle">
+          <div className="imagebox">
+            <img src="./assets/image/02.jpg" alt="" />
+          </div>
+          <div>
+            <p>한화생명 ‘2024 지속가능경영보고서’ 발간</p>
+          </div>
+        </div>
+        <div>
+          <div className="imagebox">
+            <img src="./assets/image/03.jpg" alt="" />
+          </div>
+          <div>
+            <p>한화, 책임경영 실천 및 주주가치 제고 나선다</p>
+          </div>
+        </div>
+      </div>
+    </MiddlePhotoBlock>
+  );
 };
 
 export default MiddlePhoto;

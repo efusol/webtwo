@@ -16,7 +16,7 @@ const BoardListBlock = styled.div`
     th { padding: 5px }
     td {
             padding: 5px; text-align:center;
-            &: nth-child(3) { text-align:left }
+            &:nth-child(3) { text-align:left }
         }
     }
     .btn {

@@ -112,7 +112,7 @@ background: #000;
                 }
             }
         }
-    }
+    
 `
 
 const BaseBallHistory = () => {

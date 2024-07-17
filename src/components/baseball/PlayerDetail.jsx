@@ -47,8 +47,9 @@ const Info = styled.div`
     flex:1; 
     font-size:20px; 
     line-height:1.5em; 
-    }
-}
+    
+
+
 `
 
 const PlayerDetail = ({item, index}) => {

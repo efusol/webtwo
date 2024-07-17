@@ -3,16 +3,20 @@ import styled from 'styled-components';
 
 
 const MainBottomBlock = styled.div`
-display: flex;
-justify-content: center;
-margin: 150px 0;
-@media screen and (max-width: 767px){
-	display: none;
-}
-  div {
+    display: flex;
+  justify-content: center;
+  margin: 150px 0;
+
+  
+
+  @media screen and (max-width: 767px){
+				display: none;
+			}
+
+  div{
   @media screen and (max-width: 1024px){
-    flex-wrap: wrap;
-	}
+        flex-wrap: wrap;
+			}
   max-width 1700px;
   overflow:hidden;
   display: flex;

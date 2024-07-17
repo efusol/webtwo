@@ -1,7 +1,7 @@
 import React from 'react';
 import MedicineDetail from './medicineproducts/MedicineDetail';
-import { useLocation } from 'react-router';
 import MedicineTop2 from './medicinecommon/MedicineTop2';
+import { useLocation } from 'react-router-dom';
 
 const MedicineDetailView = () => {
   const location = useLocation()

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import topimg2 from '/assets/image/v_product-742.jpg';
 
 const MedicineTop2Block = styled.div`
-margin-top: 90px;
 position: relative;
   .top {
     img {

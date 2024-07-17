@@ -95,8 +95,6 @@ margin: 120px auto;
 `
 
 const MedicineMap = () => {
-	const {kakao} = window
-
 	useEffect(()=>{
 		const mapContainer = document.getElementById('map'),
     mapOption = { 
@@ -108,9 +106,8 @@ const MedicineMap = () => {
 		const markerPosition  = new kakao.maps.LatLng(37.75374664366971, 127.56569187852998); 
 		const marker = new kakao.maps.Marker({
     position: markerPosition
-});
-
-marker.setMap(map);
+	});
+	marker.setMap(map);
 	}, [])
 	
 

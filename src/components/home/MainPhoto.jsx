@@ -1,25 +1,28 @@
-import React from 'react';
+import React, {useRef} from 'react';
+import Slider from 'react-slick';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css'
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const MainPhotoBlock = styled.div`
 position: relative;
   .top {
-    img {
-      margin-top: 90px;
-    }
     margin-bottom: 200px;
     position: relative;
     .text1 {
       position: absolute;
-      top: 15%;
+      top: 10%;
       left: 5%;
       color: #fff;
       @media screen and (max-width: 1024px){
-        display: none;
+        
+          display: none;
+        
       }
+    
       h1 {
         text-align: left;
+
       }
     }
     .text2 {
@@ -27,8 +30,10 @@ position: relative;
       top: 70%;
       right: 100px;
       color: #fff;
-      @media screen and (max-width: 1024px) {
-        display: none;
+            @media screen and (max-width: 1024px){
+        
+          display: none;
+        
       }
       h1 {
         text-align: left;
@@ -39,12 +44,11 @@ position: relative;
         padding-bottom: 5px;
       }
     }
+  }
+    
     .text3{
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1024px){
       display: block;
-    }
-    @media screen and (max-width: 767px) {
-      font-size: 30px;
     }
       display: none;
       position: absolute;
@@ -53,11 +57,26 @@ position: relative;
       transform:translate(-50%, -50%);
       font-size:50px;
       color:#fff;
-    }
-  }
+    
+}
 `
 
-const MainPhoto = () => {
+const Jump = styled.section`
+  position: fixed; top: 40%; right: 15px;
+    display: flex; flex-direction: column;
+    button {
+        margin: 10px 0; 
+        padding: 10px 20px;
+        background: none;
+        border: none;
+        z-index: 9999;
+    }
+    img {
+        display: block;
+    }
+`
+
+const MainPhoto = ({scrollToSection, MainPhotoRef, SubPhotoRef, MiddlePhotoRef}) => {
   return (
     <MainPhotoBlock>
       <div className="top">
@@ -78,6 +97,17 @@ const MainPhoto = () => {
           <h1>Hanwha</h1>
         </div>
       </div>
+      <Jump>
+                <button onClick={() => scrollToSection(MainPhotoRef)}>
+                    <img src='./assets/image/side_icon1.png' alt='icon1' />
+                </button>
+                <button onClick={() => scrollToSection(SubPhotoRef)}>
+                    <img src='./assets/image/side_icon4.png' alt='icon4' />
+                </button>
+                <button onClick={() => scrollToSection(MiddlePhotoRef)}>
+                    <img src='./assets/image/side_icon3.png' alt='icon3' />
+                </button>
+            </Jump>
     </MainPhotoBlock>
   );
 };

@@ -5,13 +5,7 @@ import 'slick-carousel/slick/slick.css'
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const SubPhotoBlock = styled.div`
-padding-top: 90px;
 h1 {text-align: center;}
-.title {
-  @media screen and (max-width:767px) {
-    font-size: 20px;
-  }
-}
   .slide {
     position: relative;
     height: 40vw;
@@ -28,9 +22,6 @@ h1 {text-align: center;}
       left: 5%;
       color: #fff;
       h1 {
-        @media screen and (max-width:767px) {
-          font-size: 30px;
-        }
         text-align: left;
         font-size: 44px;
       }
@@ -106,7 +97,7 @@ const SubPhoto = () => {
 
   return (
     <SubPhotoBlock>
-      <h1 className='title'>한화는 우리의 기술, 제품, 서비스를 통해<br />
+      <h1>한화는 우리의 기술, 제품, 서비스를 통해<br />
         개인과 사회의 풍요로운 삶의 기반을 마련합니다.</h1>
       <Slider {...option} className='row'>
         <div className="slide slide1">

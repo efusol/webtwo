@@ -7,9 +7,6 @@ import { addUsers } from '../../store/user';
 const JoinSectionBlock = styled.div`
 padding: 90px;
   div {
-    @media screen and (max-width: 767px) {
-      width: 100%;
-    }
     width: 400px;
     margin: 0 auto;
     h1 {

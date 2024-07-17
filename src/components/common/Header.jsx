@@ -1,50 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink,Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { userLogout } from '../../store/user';
 import { GiHamburgerMenu } from "react-icons/gi";
-import { IoCloseSharp } from "react-icons/io5";
+import { IoMdClose } from "react-icons/io";
+import { useMediaQuery } from 'react-responsive'
 
 const HeaderBlock = styled.div`
-@media screen and (max-width:1024px) {
-  &.on {
-    position: fixed;
-    width: 70%;
-    height: 100%;
-    z-index: 10;
-    transition: 1s;
-    background: rgba(0, 0, 0, 0.5);
-  }
-}
   .hamburger {
-    position: fixed;
-    top: 4%;
-    right: 1%;
+    position:absolute;
+    top: 50%;
+    transform:translateY(-50%);
+    right: 30px;
     font-size: 30px;
-    display: none;
-    @media screen and (max-width:1024px) {
-      display: block;
-    }
+    cursor:pointer; 
   }
   .close {
-    position: fixed;
-    top: 1%;
-    right: 1%;
-    font-size: 30px;
-    display: none;
-    color: #000;
-    @media screen and (max-width:1024px) {
-      display: block;
-      z-index: 10;
-    }
-  }
+    position:absolute;
+    top:50px; right:30px; 
+    transform:translateY(-50%);
+    font-size:30px;
+    color:#000; 
+    cursor:pointer; 
+  }  
   .header {
-    @media screen and (max-width:1024px) {
-      height: 90px;
-    }
-    position: fixed;
+  @media screen and (max-width:1024px) {
+  position: fixed;
+    height: 90px;
+  }
+    position:relative;
     background: #000;
+    top:0;
     color: #fff;
     width: 100%;
     padding: 0 50px;
@@ -62,27 +49,28 @@ const HeaderBlock = styled.div`
     @media screen and (max-width:1024px) {  
       display: block;
       position: fixed;
-      top: 0;
       left: 100%;
-      padding-top: 90px;
-      background: white;
       width: 30%;
-      height: 100%;
+      right: 0px; top: 0px; 
+      background: white;
+      height: 1080px;
       color: #000;
-      &.on {left: 70%;}
+      padding-top: 90px;
+      transition: 0.5s;
+      &.on {
+        left: 70%;
+      }
+      
     }
       display: flex;
       align-items: center;
       text-align: center;
       height: 90px;
-      position: relative;
-      transition: 1s;
+      position: relative;  
       li {
-        @media screen and (max-width:1024px) {
-          width: 100%;
-          border-bottom: 1px solid #ddd;
-          &:nth-child(1) {border-top: 1px solid #ddd;}
-        }
+      @media screen and (max-width:1024px) {  
+        width: 100%;
+      }
         width: 120px;
         &:hover {
           color: rgba(0, 0, 0, 0.5);
@@ -105,6 +93,9 @@ const HeaderBlock = styled.div`
       }
       .depth2 {
         @media screen and (max-width:1024px) {
+        border: 2px solid red;
+        
+      
       }
         position: absolute;
         top: 100%;
@@ -148,24 +139,21 @@ const HeaderBlock = styled.div`
     }
   }
   .header:hover {
-    @media screen and (max-width:1024px) {
-      background: #000;
-      color: #fff;
-    }
+  @media screen and (max-width:1024px) {
+    background: black;
+  }
     background: #EDECEC;
     color: #000;
     transition: 1s;
+    .depth1 {}
     .depth2 {opacity: 1; pointer-events: auto;
       @media screen and (max-width:1024px) {
         opacity: 0; pointer-events: none;
-      }
-    }
+        
+      
+      }}
     .mem {
       a {
-        @media screen and (max-width:1024px) {
-          border: none;
-          color: #000;
-        }
         border: 1px solid #000;
         color: #000;
       }
@@ -174,45 +162,18 @@ const HeaderBlock = styled.div`
 `
 
 const LoginJoin = styled.div`
-@media screen and (max-width:1024px) {
-  position: fixed;
-  left: 100%;
-  bottom: 3%;
-  width: 30%;
-  display: flex;
-  transition: 1s;
-  &.on {left: 70%;}
-}
   ul {
-    @media screen and (max-width:1024px) {
-      flex: 1;
-    }
     display: flex;
     li {
-      @media screen and (max-width:1024px) {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-      }
       font-size: 12px;
       padding: 0 10px;
       a {
-        @media screen and (max-width:1024px) {
-          border: none;
-          color: #000;
-        }
-        @media screen and (max-width:767px) {
-          font-size: 10px;
-        }
         border: 1px solid #fff;
         border-radius: 25px;
         padding: 5px;
         color: #fff;
       }
       a:hover {
-        @media screen and (max-width:1024px) {
-          background: #ddd;
-        }
         background: #fff;
       }
     }
@@ -223,18 +184,30 @@ const LoginJoin = styled.div`
 const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector(state=>state.users.user)
+  const mobile = useMediaQuery({ maxWidth:1024 })
   const [isUser, setIsUser] = useState(user)
-  const [on, setOn] = useState(false)
+  const [open, setOpen ] = useState(false)
   const navigate = useNavigate()
+
+  
 
   useEffect(()=>{
     setIsUser(user)
   }, [user])
 
   return (
-    <HeaderBlock className={on ? 'on' : ''}>
+    <HeaderBlock>
         <div className='header'> 
-          <div className='hamburger' onClick={()=>setOn(true)}>< GiHamburgerMenu /></div>
+          { mobile &&
+          <div className='hamburger' onClick={ ()=> setOpen(true)}>
+            < GiHamburgerMenu /> 
+            </div>
+        }
+        { mobile &&
+          <div className='close'  onClick= {()=>setOpen(false)}>
+            <IoMdClose />
+            </div>
+        }
           <h1>
             <Link to='/'>
               <svg width="132" height="37" viewBox="0 0 132 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -257,16 +230,16 @@ const Header = () => {
               </svg>
             </Link>
           </h1>
-          <ul className={on ? 'depth1 on' : 'depth1'}>
-            <li className='mainli q'><Link>그룹소개</Link></li>
+          <ul className={open ? "depth1 on":"depth1"}>
+            <li className='mainli q'><Link to="/baseballhome">한화이글스</Link></li>
             <li className='mainli w'><Link>사업분야</Link></li>
             <li className='mainli e'><Link>뉴스룸</Link></li>
-            <li className='mainli r'><Link>지속가능경영</Link></li>
+            <li className='mainli r'><Link to="/board">종합게시판</Link></li>
             <ul className='depth2'>
               <ul className='sub1'>
-                <li><Link>기업소개</Link></li>
-                <li><Link>인사말</Link></li>
-                <li><Link>연혁</Link></li>
+                <li><Link to="/baseballhome">구단 홈</Link></li>
+                <li><Link to="/baseball">선수소개</Link></li>
+                <li><Link to="/baseballhistory">연혁</Link></li>
                 <li><Link>브랜드 스토리</Link></li>
               </ul>
               <ul className='sub2'>
@@ -282,14 +255,14 @@ const Header = () => {
                 <li><Link>한화저널</Link></li>
               </ul>
               <ul className='sub4'>
-                <li><Link>Overview</Link></li>
+                <li><Link to="/board">종합게시판</Link></li>
                 <li><Link>Environment</Link></li>
                 <li><Link>Social</Link></li>
                 <li><Link>Governance</Link></li>
               </ul>
             </ul>
           </ul>
-          <LoginJoin className={on ? 'on' : ''}>
+          <LoginJoin>
             { !isUser ?
               <>
                 <ul>
@@ -313,7 +286,6 @@ const Header = () => {
               </>
             }
           </LoginJoin>
-          <IoCloseSharp className='close' onClick={()=>setOn(false)} />
         </div>
         
     </HeaderBlock>

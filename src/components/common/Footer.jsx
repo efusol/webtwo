@@ -159,12 +159,6 @@ const Footer = () => {
                                 <li>
                                     <Link to="/updown">UpDown</Link>
                                 </li>
-                                <li>
-                                    <Link>Social</Link>
-                                </li>
-                                <li>
-                                    <Link>Goveranace</Link>
-                                </li>
                             </ul>
                         </li>
                     </ul>

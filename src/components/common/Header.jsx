@@ -333,12 +333,6 @@ const Header = () => {
                             <li>
                                 <Link to="/updown">UpDown</Link>
                             </li>
-                            <li>
-                                <Link>Social</Link>
-                            </li>
-                            <li>
-                                <Link>Governance</Link>
-                            </li>
                         </ul>
                     </ul>
                 </ul>

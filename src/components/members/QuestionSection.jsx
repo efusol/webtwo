@@ -48,7 +48,6 @@ const QuestionBlock = styled.div`
 const QuestionSection = () => {
     const [active, setActive] = useState();
     const [question, setQuestion] = useState(qandaJson);
-    const [btnOn, setBtnOn] = useState('');
     let tagData = null;
     const [on, setOn] = useState('');
 
@@ -65,6 +64,7 @@ const QuestionSection = () => {
         tagData = qandaJson.filter((item) => item.hash.includes(tag));
         setQuestion(tagData);
         setCurrentPage(1);
+        setActive(null)
     };
 
     const totalItems = useRef(0);
@@ -89,7 +89,6 @@ const QuestionSection = () => {
                 <Title title={'자주 묻는 질문'} />
                 <HashTag
                     hashTagPush={hashTagPush}
-                    setBtnOn={setBtnOn}
                     toggle={toggle}
                     on={on}
                 />

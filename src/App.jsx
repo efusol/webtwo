@@ -26,82 +26,84 @@ import Members from './components/members/Members';
 import QuestionView from './components/members/QuestionView';
 import BenefitView from './components/members/BenefitView';
 import LocationDetail from './components/members/LocationDetail';
+import UpDown from './views/UpDown';
 
 const App = () => {
-    return (
-        <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<HomeView />} />
-                    <Route
-                        path="/baseballhome"
-                        element={<BaseballHomeView />}
-                    />
-                    <Route path="/baseball" element={<BaseballView />} />
-                    <Route
-                        path="/player/:id"
-                        element={<BaseBallDetailView />}
-                    />
-                    <Route
-                        path="/baseballhistory"
-                        element={<BaseBallHistoryView />}
-                    />
-                    <Route path="medicine" element={<MedicineView />}>
-                        <Route index element={<MedicineHomeView />} />
-                        <Route
-                            path="history"
-                            element={<MedicineHistoryView />}
-                        />
-                        <Route path="family" element={<MedicineFamilyView />} />
-                        <Route
-                            path="products"
-                            element={<MedicineProductsView />}
-                        />
-                        <Route
-                            path="products/:name"
-                            element={<MedicineDetailView />}
-                        />
-                        <Route
-                            path="location"
-                            element={<MedicineLocationView />}
-                        />
-                        <Route
-                            path="ingredients"
-                            element={<MedicineIngredientsView />}
-                        />
-                    </Route>
-                    <Route path="/join" element={<JoinView />} />
-                    <Route path="/login" element={<LoginView />} />
-                    <Route path="/board" element={<BoardListView />} />
-                    <Route path="/boardwrite" element={<BoardWriteView />} />
-                    <Route
-                        path="/boardDetail/:subject"
-                        element={<BoardDetailView />}
-                    />
-                    <Route
-                        path="/boardModify/:subject"
-                        element={<BoardModifyView />}
-                    />
-                    <Route path="/member" element={<MembersView />}>
-                        <Route path="/member/members" element={<Members />} />
-                        <Route
-                            path="/member/question"
-                            element={<QuestionView />}
-                        />
-                        <Route
-                            path="/member/benefit"
-                            element={<BenefitView />}
-                        />
-                        <Route
-                            path="/member/detail/:num"
-                            element={<LocationDetail />}
-                        />
-                    </Route>
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    );
+	return (
+		<BrowserRouter>
+			<ScrollToTop />
+			<Routes>
+				<Route path="/" element={<Layout />}>
+					<Route index element={<HomeView />} />
+					<Route
+						path="/baseballhome"
+						element={<BaseballHomeView />}
+					/>
+					<Route path="/baseball" element={<BaseballView />} />
+					<Route
+						path="/player/:id"
+						element={<BaseBallDetailView />}
+					/>
+					<Route
+						path="/baseballhistory"
+						element={<BaseBallHistoryView />}
+					/>
+					<Route path="medicine" element={<MedicineView />}>
+						<Route index element={<MedicineHomeView />} />
+						<Route
+							path="history"
+							element={<MedicineHistoryView />}
+						/>
+						<Route path="family" element={<MedicineFamilyView />} />
+						<Route
+							path="products"
+							element={<MedicineProductsView />}
+						/>
+						<Route
+							path="products/:name"
+							element={<MedicineDetailView />}
+						/>
+						<Route
+							path="location"
+							element={<MedicineLocationView />}
+						/>
+						<Route
+							path="ingredients"
+							element={<MedicineIngredientsView />}
+						/>
+					</Route>
+					<Route path="/join" element={<JoinView />} />
+					<Route path="/login" element={<LoginView />} />
+					<Route path="/updown" element={ <UpDown /> } />
+					<Route path="/board" element={<BoardListView />} />
+					<Route path="/boardwrite" element={<BoardWriteView />} />
+					<Route
+						path="/boardDetail/:subject"
+						element={<BoardDetailView />}
+					/>
+					<Route
+						path="/boardModify/:subject"
+						element={<BoardModifyView />}
+					/>
+					<Route path="/member" element={<MembersView />}>
+						<Route path="/member/members" element={<Members />} />
+						<Route
+							path="/member/question"
+							element={<QuestionView />}
+						/>
+						<Route
+							path="/member/benefit"
+							element={<BenefitView />}
+						/>
+						<Route
+							path="/member/detail/:num"
+							element={<LocationDetail />}
+						/>
+					</Route>
+				</Route>
+			</Routes>
+		</BrowserRouter>
+	);
 };
 
 export default App;

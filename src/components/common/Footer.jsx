@@ -109,10 +109,10 @@ const Footer = () => {
 							</ul>
 						</li>
 						<li className='list'>
-							<h4 className='mt'><Link>지속가능경영</Link></h4>
+							<h4 className='mt'><Link>놀이터</Link></h4>
 							<ul>
-								<li><Link>Overview</Link></li>
-								<li><Link>Environment</Link></li>
+								<li><Link to="/board">종합게시판</Link></li>
+								<li><Link to='/updown'>UpDown</Link></li>
 								<li><Link>Social</Link></li>
 								<li><Link>Goveranace</Link></li>
 							</ul>

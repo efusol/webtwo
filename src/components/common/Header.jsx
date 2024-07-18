@@ -280,7 +280,7 @@ const Header = () => {
                         <Link to="/member/members">한화 채용</Link>
                     </li>
                     <li className="mainli r">
-                        <Link to="/board">종합게시판</Link>
+                        <Link to="/board">놀이터</Link>
                     </li>
                     <ul className="depth2">
                         <ul className="sub1">
@@ -331,7 +331,7 @@ const Header = () => {
                                 <Link to="/board">종합게시판</Link>
                             </li>
                             <li>
-                                <Link>Environment</Link>
+                                <Link to='/updown'>UpDown</Link>
                             </li>
                             <li>
                                 <Link>Social</Link>

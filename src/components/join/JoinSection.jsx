@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { addUsers } from '../../store/user';
@@ -52,6 +52,7 @@ const JoinSection = () => {
   const userPwOkRef = useRef()
   const userPhoneRef = useRef()
   const userAddr2Ref = useRef()
+  const users = useSelector(state=>state.users.users)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -94,6 +95,11 @@ const JoinSection = () => {
     }
     if (!userInfo.userId) {
       alert('아이디를 입력해주세요')
+      userIdRef.current.focus()
+      return
+    }
+    if (users.find(item=>item.userId == userInfo.userId)) {
+      alert('중복된 아이디입니다')
       userIdRef.current.focus()
       return
     }

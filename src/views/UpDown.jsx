@@ -42,9 +42,9 @@ background: blue;
 `
 
 const UpDown = () => {
-  const [state, setState] = useState('1~1000')
+  const [state, setState] = useState('1~999999999')
   const [answer, setAnswer] = useState(0)
-  const [right, setRight] = useState(Math.ceil(Math.random()*1000))
+  const [right, setRight] = useState(Math.ceil(Math.random()*999999999))
   const [on, setOn] = useState(false)
 
   const sendSubmit = (e) => {
@@ -63,8 +63,8 @@ const UpDown = () => {
   }
 
   const onReset = () => {
-    setRight(Math.ceil(Math.random()*1000))
-    setState('1~1000')
+    setRight(Math.ceil(Math.random()*999999999))
+    setState('1~999999999')
     setAnswer(0)
     setOn(false)
   }
@@ -77,7 +77,7 @@ const UpDown = () => {
       <h1>UP DOWN</h1>
       <form onSubmit={sendSubmit}>
         <h3>{state}</h3>
-        <input type="number" max='1000' min='1' value={answer} onChange={changeAnswer} />
+        <input type="number" max='999999999' min='1' value={answer} onChange={changeAnswer} />
         <button type='submit'>확인</button>
         <button type='button' onClick={onReset} className={on ? 'reset on' : 'reset'}>한번더</button>
       </form>

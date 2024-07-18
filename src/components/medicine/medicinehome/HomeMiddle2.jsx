@@ -33,13 +33,13 @@ margin-top: 200px;
       .depth {
         display: flex;
         gap: 10em;
-        margin: 0 25px;
+        margin: 0 auto;
         justify-content: center;
         font-weight: 900;
         position: relative;
         ul {
-          flex: 1 1 33%;
-          max-width: 33%;
+          flex: 0 1 30%;
+          max-width: 30%;
           overflow: hidden;
           counter-reset: titNum 0;
           .svg {

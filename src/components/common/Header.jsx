@@ -317,13 +317,13 @@ const Header = () => {
                         </ul>
                         <ul className="sub3">
                             <li>
-                                <Link>뉴스룸 메인</Link>
+                                <Link to="/member/benefit">복지혜택</Link>
                             </li>
                             <li>
-                                <Link>미디어센터</Link>
+                                <Link to="/member/members">한화 가족</Link>
                             </li>
                             <li>
-                                <Link>한화저널</Link>
+                                <Link to="/member/question">자주묻는 질문</Link>
                             </li>
                         </ul>
                         <ul className="sub4">
@@ -331,7 +331,7 @@ const Header = () => {
                                 <Link to="/board">종합게시판</Link>
                             </li>
                             <li>
-                                <Link to='/updown'>UpDown</Link>
+                                <Link to="/updown">UpDown</Link>
                             </li>
                             <li>
                                 <Link>Social</Link>

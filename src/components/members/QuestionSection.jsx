@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import HashTag from './HashTag';
 import Title from './Title';
@@ -47,7 +47,25 @@ const QuestionBlock = styled.div`
 
 const QuestionSection = () => {
     const [active, setActive] = useState();
-    const question = qandaJson;
+    const [question, setQuestion] = useState(qandaJson);
+    const [btnOn, setBtnOn] = useState('');
+    let tagData = null;
+    const [on, setOn] = useState('');
+
+    const toggle = (num) => {
+        if (on == num) {
+            setOn('');
+            setQuestion(qandaJson);
+        } else {
+            setOn(num);
+        }
+    };
+
+    const hashTagPush = (tag) => {
+        tagData = qandaJson.filter((item) => item.hash.includes(tag));
+        setQuestion(tagData);
+        setCurrentPage(1);
+    };
 
     const totalItems = useRef(0);
     totalItems.current = question.length;
@@ -69,7 +87,12 @@ const QuestionSection = () => {
         <QuestionBlock>
             <div className="wrap">
                 <Title title={'자주 묻는 질문'} />
-                <HashTag />
+                <HashTag
+                    hashTagPush={hashTagPush}
+                    setBtnOn={setBtnOn}
+                    toggle={toggle}
+                    on={on}
+                />
                 <br />
                 {currentItems.map((item, index) => (
                     <ul className="list_ul">
@@ -80,6 +103,9 @@ const QuestionSection = () => {
                             </strong>
                             <p className={active == index ? 'active' : ''}>
                                 {item.text}
+                            </p>
+                            <p className={active == index ? 'active' : ''}>
+                                {item.hash}
                             </p>
                         </li>
                     </ul>

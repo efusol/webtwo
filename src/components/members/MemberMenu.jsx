@@ -26,7 +26,7 @@ const MemberMenu = () => {
     return (
         <MemberMenuBlock>
             <Link to="/member/benefit">복지혜택</Link>
-            <Link to="/member/members">인재 소개</Link>
+            <Link to="/member/members">사원</Link>
             <Link to="/member/question">자주묻는 질문</Link>
         </MemberMenuBlock>
     );

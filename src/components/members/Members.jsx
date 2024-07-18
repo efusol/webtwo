@@ -34,6 +34,7 @@ const MembersBlock = styled.div`
             cursor: pointer;
             &:hover {
                 transform: scale(1.05);
+                filter: none;
             }
             filter: grayscale(100%);
             &.공유,

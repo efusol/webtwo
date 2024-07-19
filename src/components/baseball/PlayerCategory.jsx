@@ -7,7 +7,7 @@ const PlayerCategoryBlock = styled.div`
     display: flex;
     justify-content: center;
     padding-top: 20px;
-    
+    background: #808080;
     button {
         width: 100px;
         height: 40px;

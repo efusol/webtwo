@@ -9,13 +9,14 @@ const PlayerSectionBlock = styled.div``
 const UlBlock = styled.ul`
     display:flex; 
     flex-wrap: wrap;
+    background: #000;
 `
 
 const ListBlock = styled.li`
     flex:0 0 29.33%;
     margin:20px 2%;
     text-align:center; 
-    border:1px solid #000;
+    border:1px solid #fff;
     .photo{
         background: #808080;
     }
@@ -23,6 +24,7 @@ const ListBlock = styled.li`
         justify-content: space-between;
         display: inline-block;
         display: flex;
+        color: #fff;
         p:nth-child(1) { 
             display: flex;
             justify-content: center;
@@ -77,6 +79,7 @@ const PlayerSection = ({title}) => {
                 ))
             }
             </UlBlock>
+            
         </PlayerSectionBlock>
     );
 };

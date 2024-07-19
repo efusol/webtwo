@@ -9,6 +9,9 @@ position: relative;
   .top {
     margin-bottom: 200px;
     position: relative;
+    img {
+      width: 100%;
+    }
     .text1 {
       position: absolute;
       top: 10%;
